@@ -1,15 +1,11 @@
 package org.eclipse.chedemos;
 
 import java.util.Date;
-import java.util.Objects;
+import javax.persistence.*;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import io.quarkus.mongodb.panache.MongoEntity;
-import io.quarkus.mongodb.panache.PanacheMongoEntity;
-import io.quarkus.runtime.annotations.RegisterForReflection;
-
-@RegisterForReflection
-@MongoEntity(collection = "Posts")
-public class Post extends PanacheMongoEntity {
+@Entity
+public class Post extends PanacheEntity {
     private String title;
     private String content;
     private long timestamp;
@@ -47,19 +43,4 @@ public class Post extends PanacheMongoEntity {
         this.timestamp = timestamp;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Post)) {
-            return false;
-        }
-        Post other = (Post) obj;
-
-        return Objects.equals(this.title, other.title) && Objects.equals(this.content, other.content)
-                && Objects.equals(this.timestamp, other.timestamp);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.title, this.content, this.timestamp);
-    }
 }
