@@ -27,11 +27,11 @@ components:
     env:
       - name: MAVEN_OPTS
         value: '-Dmaven.repo.local=/projects/local/m2repo'
-      - name: username
+      - name: database-username
         value: 'user'
-      - name: password
+      - name: database-password
         value: 'password'
-      - name: admin_password
+      - name: database-admin-password
         value: 'password'
       - name: uri
         value: 'mongodb://localhost'
