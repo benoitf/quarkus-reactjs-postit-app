@@ -6,14 +6,8 @@ projects:
 
   - source:
       type: git
-      location: 'https://github.com/redhat-developer-demos/quarkus-reactjs-postit-app'
+      location: 'https://github.com/benoitf/quarkus-reactjs-postit-app'
     name: postit-app
-
-  - source:
-      type: zip
-      location: 'https://github.com/redhat-developer-demos/quarkus-reactjs-postit-app/releases/download/20191216-local/local.zip'
-    name: local
-
 
 components:
 
