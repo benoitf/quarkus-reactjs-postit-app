@@ -8,7 +8,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Path("/posts")
 @Produces(MediaType.APPLICATION_JSON)
@@ -34,7 +38,7 @@ public class PostResource {
   @DELETE
   @Transactional
   public Response delete(Post post) {
-    post.delete();;
+    Post.delete("timestamp=" + post.getTimestamp());
     return Response.ok().build();
   }
 }
